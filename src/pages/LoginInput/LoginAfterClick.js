@@ -1,20 +1,43 @@
-import { useState,useCallback } from "react";
+import { useState,useCallback, useEffect } from "react";
 import { TextField, InputAdornment, Icon, IconButton } from "@mui/material";
 import { NavLink, useNavigate } from "react-router-dom";
 import "./LoginAfterClick.css";
+import api from "../../api/axiosConfig"
 
 const LoginAfterClick = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [code, setCode] = useState('');
+  const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const onLoginTextClick = useCallback(() => {
-    const username = document.getElementsByName("username")[0].value;
-    const password = document.getElementsByName("password")[0].value;
-    if(username=="admin" && password =="admin"){
-      navigate('/home');
-    } else {
-      alert('Incorrect!');
-    }
 
-  }, []);
+  const getResponse = async () => {
+    try {
+      setLoading(true);
+      const response = await api.post("/login", {
+        username,
+        password
+      });
+      setCode(response.data.code);
+      setMessage(response.data.message);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const onLoginTextClick = async () => {
+    await getResponse();
+
+    if (code === "0000") {
+      navigate('/home');
+    } else if (message) {
+      alert(message);
+    }
+  };
+  
   return (
     <div className="login">
       <img className="illo-icon" alt="" src="/illo.svg" />
@@ -43,7 +66,7 @@ const LoginAfterClick = () => {
         <img className="login-form-child" alt="" src="/rectangle-1.svg" />
         <div className="admin">
           <b className="login-button" onClick={onLoginTextClick}>
-            Login
+            {loading ? "Logging in" : "Login"}
           </b>
         </div>
         <TextField
@@ -53,14 +76,19 @@ const LoginAfterClick = () => {
           sx={{ width: 350 }}
           variant="outlined"
           name="username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
         />
         <TextField
           className="input1"
           color="primary"
           label="Password"
+          type="password"
           sx={{ width: 350 }}
           variant="outlined"
           name="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <div className="title">
           <b className="admin1">ADMIN</b>
