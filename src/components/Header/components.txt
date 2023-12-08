@@ -1,0 +1,1 @@
+Create folder and write components here, then import to right file in 'pages' folder

@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Candal:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Whyte:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Droid+Sans:wght@400&display=swap");
+body {
+  margin: 0;
+  line-height: normal;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+}
+:root {
+  /* fonts */
+  --font-droid-sans: "Droid Sans";
+  --font-whyte: Whyte;
+  --font-candal: Candal;
+
+  /* font sizes */
+  --font-size-11xl: 30px;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-gray: #1e1e1e;
+  --black: #000;
+  --golden-yellow: #ffc700;
+
+  /* Paddings */
+  --padding-2xs: 11px;
+  --padding-17xl: 36px;
+  --padding-3xs: 10px;
+  --padding-6xl: 25px;
+  --padding-5xs-5: 7.5px;
+
+  /* Border radiuses */
+  --br-xl: 20px;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

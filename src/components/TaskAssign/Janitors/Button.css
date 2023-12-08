@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Inter');
+ * {box-sizing: border-box}
+ body {
+  font-family: 'Inter';
+}
+button {
+  background-color: #378fb4;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+button:hover {
+  opacity:1;
+}
+select, input, textarea {
+  height: 50px;
+}
+.confirm {
+  float: left;
+  width: 100%;
+  border-radius: 30px;
+  border:0;
+  box-shadow:4px 4px 10px rgba(0,0,0,0.2);
+ }
+.clearfix{
+    margin: 0 auto;
+    width: 100px;
+}
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}

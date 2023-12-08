@@ -1,0 +1,42 @@
+.react-calendar__month-view__days__day {
+    color: #000 !important;
+    /* padding: 0.5rem 3rem; */
+}
+.react-calendar__navigation__label {
+    color: #000 !important;
+}
+/* .react-calendar__navigation__prev-button {
+    color: #000 !important;
+} */
+.react-calendar__navigation__arrow {
+    color: #000 !important;
+}
+.react-calendar {
+    width: auto;
+    border-radius: 1rem;
+    border: none;
+    box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.1);
+}
+.row1 {
+    margin: 0 0 2rem 0;
+    padding: 0;
+}
+.link {
+    /* display: inline-block; */
+    width: auto;
+    text-decoration: none;
+}
+div {
+    box-sizing: border-box;
+    z-index: 0;
+}
+.col1 {
+    margin-right: 2rem;
+}
+.container {
+    box-sizing: border-box;
+    padding: 0;
+}
+.row2 {
+    margin: 0 0.1rem;
+}
