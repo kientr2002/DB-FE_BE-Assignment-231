@@ -4,7 +4,6 @@ import { MemberDetail } from "./../../components/MemberAndVehicle/MemberDetail";
 import { VehicleDetail } from "./../../components/MemberAndVehicle/VehicleDetail";
 import { ProductDetail } from "../../components/MemberAndVehicle/ProductDetail";
 import { BatchDetail } from "../../components/MemberAndVehicle/BatchDetail";
-import { memberData, vehicleData } from "./const";
 import api from "../../api/axiosConfig"
 
 export const MemberAndVehicle = ({ type }) => {
@@ -114,7 +113,19 @@ export const MemberAndVehicle = ({ type }) => {
 				name: "Bike",
 				data: bike
 			}
-		] : memberData;
+		] : [{
+			name: "Administrator",
+			data: admin
+		},{
+			name: "Shipper",
+			data: shipper
+		},{
+			name: "Driver",
+			data: driver
+		},{
+			name: "Customer",
+			data: customer
+		}];
 	
 	
 		const [chosen, setChosen] = useState(0);
