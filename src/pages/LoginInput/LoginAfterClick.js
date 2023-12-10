@@ -7,35 +7,30 @@ import api from "../../api/axiosConfig"
 const LoginAfterClick = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [code, setCode] = useState('');
-  const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const getResponse = async () => {
+  const onLoginTextClick = async () => {
     try {
       setLoading(true);
       const response = await api.post("/login", {
         username,
         password
       });
-      setCode(response.data.code);
-      setMessage(response.data.message);
+      const result = await response.data;
+
+      if (result.code === "0000") {
+        navigate('/home');
+      } else {
+        alert(result.message);
+      }
+
     } catch (error) {
       console.log(error);
     } finally {
       setLoading(false);
     }
-  };
-
-  const onLoginTextClick = async () => {
-    await getResponse();
-    // navigate('/home');
-    if (code === "0000") {
-      navigate('/home');
-    } else if (message) {
-      alert(message);
-    }
+    
   };
   
   return (
