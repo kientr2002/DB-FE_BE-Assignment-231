@@ -137,32 +137,6 @@ const MCPSList = [
     },
     { key: 5, name: "Dĩ An 5", percentage: "20", color_bar: '#97E075',
     ID: 222333444, year: 2019, status: "Đang sử dụng", capacity: "1500L", inUse: "300L", color: "Xanh lá", address: "167 Lý Thường Kiệt, KP Thắng Lợi 2, P. Dĩ An, TX. Dĩ An, Bình Dương", 
-        columns: [{ headerName: 'Id Task', field: 'id', width: "100", headerClassName: 'super-app-theme--header'},
-                { headerName: 'Thời gian bắt đầu', field: 'starttime', width: "200", headerClassName: 'super-app-theme--header'},
-                { headerName: 'Thời gian kết thúc', field: 'endtime', width: "200", headerClassName: 'super-app-theme--header'},
-                { headerName: 'Tình trạng', field: 'status', width: "170", headerClassName: 'super-app-theme--header'},
-                { headerName: 'Ghi chú', field: 'note', width: "188", headerClassName: 'super-app-theme--header'}],
-        data: [{
-            "id":5231,
-            "starttime":"13/11/2022 16:00",
-            "endtime":"13/11/2022 17:00",
-            "status":"Đang thực hiện",
-            "note": ""
-         },
-         {
-             "id":5230,
-             "starttime":"12/11/2022 16:00",
-             "endtime":"12/11/2022 17:00",
-             "status":"Đã hoàn thành",
-             "note": ""
-         },
-         {
-             "id":5220,
-             "starttime":"11/11/2022 16:00",
-             "endtime":"11/11/2022 17:00",
-             "status":"Đã hoàn thành",
-             "note": ""
-         }]
     }
 ];
 
@@ -191,7 +165,7 @@ export const MCP = () => {
                                 <CardContent >
                                     <CustomColor>
                                         <Typography gutterBottom variant="h5" >
-                                            <strong>MCPs</strong>
+                                            <strong>Kho</strong>
                                         </Typography>
                                     </CustomColor>
                                     {MCPSList.map((info,index) => (
@@ -235,7 +209,7 @@ export const MCP = () => {
                                         <Grid item sm={9.5} md={9.5} xs={9.5} lg={9.5}>
                                             <CustomColor>
                                                 <Typography gutterBottom variant="h6" component="h5">
-                                                    <strong>Thông tin MCP</strong>
+                                                    <strong>Thông tin Kho</strong>
                                                 </Typography>
                                             </CustomColor>
                                         </Grid>
@@ -278,26 +252,6 @@ export const MCP = () => {
                                             <Typography variant="body2" component="div">
                                                 <strong>Địa chỉ: </strong> {chosenMCP.address}
                                             </Typography>
-                                        </Grid>
-                                        <Grid item container columns={9.5} spacing={2}>
-                                            <Grid item sm={9.5} md={9.5} xs={9.5} lg={9.5}>
-                                                <Typography variant="body2" component="div">
-                                                    <strong>Lịch sử sử dụng: </strong>
-                                                </Typography>
-                                            </Grid>
-                                            <Grid item sm={9.5} xs={9.5} md={9.5} lg={9.5}>
-                                                <Box sx={{ height: 256, width: '100%', '& .super-app-theme--header': {backgroundColor: '#CDDAFF'},}} >
-                                                    <DataGrid
-                                                        rows={chosenMCP.data}
-                                                        columns={chosenMCP.columns}
-                                                        //pageSize={3}
-                                                        rowsPerPageOptions={[3]}
-                                                        disableSelectionOnClick
-                                                        experimentalFeatures={{ newEditingApi: true }}
-                                                        rowHeight={39}
-                                                    />
-                                                </Box>
-                                            </Grid> 
                                         </Grid>
                                     </Grid>
                                 </Grid>

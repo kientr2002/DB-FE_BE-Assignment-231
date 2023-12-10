@@ -20,7 +20,7 @@ export const ListItem = ({ type, data, chosen, setChosen }) => {
 				backgroundImage: "linear-gradient(180deg, rgba(66,109,236,1) 0%, rgba(134,201,145,1) 100%)",
 				color: "transparent",
 				WebkitBackgroundClip: "text"
-			}}>{type === "member" ? "Nhân viên" : "Phương tiện"}</h3>
+			}}>{type === "member" ? "Nhân viên" : type=== "vehicle" ? "Phương tiện" : "Đơn hàng"}</h3>
 			{data.map((item, index) =>
 				<Button
 					fullWidth

@@ -51,7 +51,16 @@ function App() {
               <Layout>
                 <MCPs/>
               </Layout>}/>
+            <Route path="/product" element={
+              <Layout>
+                <MemberAndVehicle type="product"/>
+              </Layout>}/>
+            <Route path="/batch" element={
+              <Layout>
+                <MemberAndVehicle type="batch"/>
+              </Layout>}/>
           </Routes>
+          
     </div>
   )
 }

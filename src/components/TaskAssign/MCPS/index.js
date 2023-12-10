@@ -74,27 +74,7 @@ const MCPS = () => {
   return (
     <>
       <div className={styles.header} style={{padding: "2rem"}}>
-        <h3 className={styles.title}>MCPs</h3>
-        <div className={styles.filter}>
-          <FormControl>
-            <InputLabel id="chooseEmployee">Filter</InputLabel>
-            <Select
-              id="chooseEmployee"
-              value={filter}
-              label="MCP Filter"
-              onChange={handleChange}
-              sx={{
-                borderRadius: "25px",
-                width: "200px",
-                height: "50px",
-              }}
-            >
-              {filterList.map((filter) => (
-                <MenuItem value={`${filter}`}>{filter}</MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        </div>
+        <h3 className={styles.title}>Kho</h3>
       </div>
       <Grid
         container
@@ -113,48 +93,6 @@ const MCPS = () => {
                 onClick={() => {
                   setChosenMCP(MCPSList[index]);
                   handleClick(index);
-                }}
-              >
-                <div style={{ marginLeft: "12px", paddingTop: "10px" }}>
-                  <Typography
-                    variant="body1"
-                    component="div"
-                    style={{ marginBottom: "-15px", marginLeft: "1px" }}
-                  >
-                    <strong>{info.name}</strong>
-                  </Typography>
-                  <ProgressBar
-                    width="450px"
-                    height="12px"
-                    rect
-                    fontColor={info.color_bar}
-                    percentage={info.percentage}
-                    rectPadding="0px"
-                    rectBorderRadius="20px"
-                    trackPathColor="transparent"
-                    bgColor="#D94949"
-                    trackBorderColor="#b6b6b6"
-                    defColor={{
-                      fair: "#97E075",
-                      good: "#FFE76B",
-                      excellent: "#D94949",
-                      poor: "#97E075",
-                    }}
-                  ></ProgressBar>
-                </div>
-              </div>
-            ))}
-          </CardContent>
-        </Grid>
-        <Grid item>
-          <CardContent style={{ userSelect: "none" }}>
-            {MCPSList2.map((info, index) => (
-              <div
-                key={index}
-                style={selected === index + 5 ? active : inactive}
-                onClick={() => {
-                  setChosenMCP(MCPSList[index]);
-                  handleClick(index + 5);
                 }}
               >
                 <div style={{ marginLeft: "12px", paddingTop: "10px" }}>

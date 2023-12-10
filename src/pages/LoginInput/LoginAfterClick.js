@@ -30,7 +30,7 @@ const LoginAfterClick = () => {
 
   const onLoginTextClick = async () => {
     await getResponse();
-
+    // navigate('/home');
     if (code === "0000") {
       navigate('/home');
     } else if (message) {

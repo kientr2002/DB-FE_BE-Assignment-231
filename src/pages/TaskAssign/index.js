@@ -11,7 +11,7 @@ import MapBox from "./Map";
 import { useNavigate } from "react-router-dom";
 const useStyles = makeStyles(() => ({
   container: {
-    position: "fixed",
+    position: "absolute",
     top: "20%",
     left: "13%",
     width: "84%",

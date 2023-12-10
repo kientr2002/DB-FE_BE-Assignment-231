@@ -142,7 +142,7 @@ export const Homepage = () => {
                             <CardContent style={{padding: "1.3rem"}}>
                                 <CustomColor>
                                     <Typography gutterBottom variant="h5" >
-                                        <h3><strong>MCPs</strong></h3>
+                                        <h3><strong>Kho</strong></h3>
                                     </Typography>
                                 </CustomColor>
                                 {MCPSList.map((info,index) => (

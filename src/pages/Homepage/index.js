@@ -5,7 +5,7 @@ import { makeStyles } from '@mui/styles';
 export const Home = () => {
     const useStyles = makeStyles(() => ({
       container: {
-        position: "fixed",
+        position: "absolute",
         top: "20%",
         left: "13%",
         width: "84%",

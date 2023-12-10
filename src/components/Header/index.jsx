@@ -1,10 +1,22 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { useCallback } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap/dist/js/bootstrap.min.js";
 import './style.css';
-import { BiMessageRounded, BiBell, BiCog, BiMenu } from "react-icons/bi";
-
+import { BiMessageRounded, BiBell, BiMenu, BiPowerOff } from "react-icons/bi";
+import { NavLink, useNavigate } from "react-router-dom";
+import api from "../../api/axiosConfig"
 function Header() {
+  const navigate = useNavigate();
+  
+  const logOutContainerClick = async () => {
+    const response = await api.get("/logout");
+    if(response.data.code === "1001"){
+        navigate('/');
+    }
+    
+    
+  };    
     return (
         <div className='container'>
             <div id='header' className='row align-items-center'>
@@ -20,11 +32,11 @@ function Header() {
                                 </div>
                                 <div className='info col-9'>
                                     <h5 className='name'>Nguyen Van A</h5>
-                                    <p className='position'>Back Officer</p>
+                                    <p className='position'>SManager</p>
                                 </div>
                             </div>
                         </div>
-                        <div className='col-1'><BiCog className='icon col-1'/></div>
+                        <div className='col-1'><BiPowerOff className='icon col-1' onClick={logOutContainerClick}/></div>
                     </div>
                 </div>
             </div>
