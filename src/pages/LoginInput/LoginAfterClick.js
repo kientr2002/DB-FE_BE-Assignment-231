@@ -13,9 +13,13 @@ const LoginAfterClick = () => {
   const onLoginTextClick = async () => {
     try {
       setLoading(true);
-      const response = await api.post("/login", {
+     const response = await api.post("/login", {
         username,
         password
+      }, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
       });
       const result = await response.data;
 

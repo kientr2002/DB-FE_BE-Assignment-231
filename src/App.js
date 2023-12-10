@@ -11,7 +11,21 @@ import MCPs from './pages/MCPS';
 import { Home } from './pages/Homepage';
 import Login from './pages/Login/Login';
 import LoginAfterClick from './pages/LoginInput/LoginAfterClick';
-
+//Method
+import Method from './pages/Method';
+import InsertShipment from './pages/Method/Shipment/InsertShipment';
+import Shipment from './pages/Method/Shipment';
+import InsertOutRangeShipment from './pages/Method/Shipment/InsertOutrangeShipment';
+import InsertShipmentBatch from './pages/Method/Shipment/InsertShipmentBatch';
+import UpdatePickUpMan from './pages/Method/Shipment/UpdatePickUpMan';
+import UpdateDeliveryMan from './pages/Method/Shipment/UpdateDeliveryMan';
+import UpdateStatus from './pages/Method/Shipment/UpdateStatus';
+import UpdateShipmentBatchId from './pages/Method/Shipment/UpdateShipmentBatchId';
+import UpdatePickUpDate from './pages/Method/Shipment/UpdatePickupDate';
+import UpdateDateDeliveryMan from './pages/Method/Shipment/UpdateDateDeliveryMan';
+import DeleteShipmentBatch from './pages/Method/Shipment/DeleteShipmentBatch';
+import DeleteShipment from './pages/Method/Shipment/DeleteShipment';
+import DeleteOutrangeShipment from './pages/Method/Shipment/DeleteOutrangeShipment';
 function App() {
   return (
     <div>
@@ -59,6 +73,63 @@ function App() {
               <Layout>
                 <MemberAndVehicle type="batch"/>
               </Layout>}/>
+            <Route path="/method" element={
+              <Layout>
+                <Method/>
+              </Layout>}/>
+            <Route path="/insertshipment" element={
+              <Layout>
+                <InsertShipment/>
+              </Layout>}/>          
+            <Route path="/shipment" element={
+              <Layout>
+                <Shipment/>
+              </Layout>}/> 
+            <Route path="/insertoutrangeshipment" element={
+              <Layout>
+                <InsertOutRangeShipment/>
+              </Layout>}/>   
+            <Route path="/insertshipmentbatchshipment" element={
+              <Layout>
+                <InsertShipmentBatch/>
+              </Layout>}/>    
+            <Route path="/updatepickupman" element={
+              <Layout>
+                <UpdatePickUpMan/>
+              </Layout>}/>
+            <Route path="/updatedeliveryman" element={
+              <Layout>
+                <UpdateDeliveryMan/>
+              </Layout>}/> 
+            <Route path="/updatestatus" element={
+              <Layout>
+                <UpdateStatus/>
+              </Layout>}/>                 
+              <Route path="/updateshipmentbatchid" element={
+              <Layout>
+                <UpdateShipmentBatchId/>
+              </Layout>}/>                  
+            <Route path="/updatepickupdate" element={
+              <Layout>
+                <UpdatePickUpDate/>
+              </Layout>}/>              
+            <Route path="/updatedatedeliveryman" element={
+              <Layout>
+                <UpdateDateDeliveryMan/>
+              </Layout>}/>
+            <Route path="/deleteshipment" element={
+              <Layout>
+                <DeleteShipment/>
+              </Layout>}/>
+            <Route path="/deleteoutrangeshipment" element={
+              <Layout>
+                <DeleteOutrangeShipment/>
+              </Layout>}/>
+            <Route path="/deleteshipmentbatch" element={
+              <Layout>
+                <DeleteShipmentBatch/>
+              </Layout>}/>
+                        
           </Routes>
           
     </div>
