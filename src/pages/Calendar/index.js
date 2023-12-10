@@ -13,7 +13,7 @@ const Calendar = () => {
   let grid = { id: 0, day: 0 };
   const weekspMonth = [0, 1, 2, 3, 4];
   const weekDays = ["cn", "t2", "t3", "t4", "t5", "t6", "t7"];
-  const [tasks, setTasks] = useState(data);
+  const [tasks, setTasks] = useState([]);
   const [monthDifference, setMonthDifference] = useState(0);
   const [currentTask, setCurrentTask] = useState({});
   const [month, setMonth] = useState({
