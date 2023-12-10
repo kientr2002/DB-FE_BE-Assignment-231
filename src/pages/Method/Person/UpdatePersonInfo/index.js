@@ -39,12 +39,14 @@ const useStyles = makeStyles(() => ({
     margin: '20px',
   },
 }));
-const DeleteShipment = () => {
+const UpdatePersonInfo = () => {
   const styles = useStyles();
   const navigate = useNavigate();
   const [page, setPage] = useState(0);
   const [formData, setFormData] = useState({
-    id: ""
+    ssn: "",
+    fullname: "",
+    address: ""
   });
   const handleInputChange = (fieldName, value) => {
     setFormData((prevData) => ({
@@ -52,10 +54,10 @@ const DeleteShipment = () => {
       [fieldName]: value,
     }));
   };
-
+//ham nay chua test do khong biet trigger nao support cho cai nay
 const handleSuccessClick = async () => {
   try {
-    const response = await axios.post("http://localhost:8080/api/v1/shipments/delete", formData, {
+    const response = await axios.post("http://localhost:8080/api/v1/people/update-person", formData, {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -65,7 +67,7 @@ const handleSuccessClick = async () => {
     const { code, message } = response.data;
 
     // Display alert with the code
-    if(code === '3002'){
+    if(code === '3001'){
       alert('success!')
       navigate('/shipment');
     } else {
@@ -74,6 +76,7 @@ const handleSuccessClick = async () => {
 
   } catch (error) {
     console.error("Error while sending data:", error);
+
   }
 };
 
@@ -85,7 +88,7 @@ const handleSuccessClick = async () => {
         {/* Component Assign Page */}
         <div className={styles.components}>
           <div className={styles.header} style={{padding: "2rem"}}>
-            <h3 className={styles.title}>Delete Shipment</h3>
+            <h3 className={styles.title}>Update Person</h3>
           </div>
           <Grid
             container
@@ -100,10 +103,32 @@ const handleSuccessClick = async () => {
                 <Form.Control
                   size="lg"
                   type="text"
-                  placeholder="id"
-                  value={formData.id}
+                  placeholder="ssn"
+                  value={formData.ssn}
                   onChange={(e) =>
-                    handleInputChange("id", e.target.value)
+                    handleInputChange("ssn", e.target.value)
+                  }
+                />
+              </CardContent>
+              <CardContent style={{ userSelect: "none" }}>
+                <Form.Control
+                  size="lg"
+                  type="text"
+                  placeholder="fullname"
+                  value={formData.fullname}
+                  onChange={(e) =>
+                    handleInputChange("fullname", e.target.value)
+                  }
+                />
+              </CardContent>
+              <CardContent style={{ userSelect: "none" }}>
+                <Form.Control
+                  size="lg"
+                  type="text"
+                  placeholder="address"
+                  value={formData.address}
+                  onChange={(e) =>
+                    handleInputChange("address", e.target.value)
                   }
                 />
               </CardContent>
@@ -119,4 +144,4 @@ const handleSuccessClick = async () => {
     </div>
   );
 };
-export default DeleteShipment;
+export default UpdatePersonInfo;

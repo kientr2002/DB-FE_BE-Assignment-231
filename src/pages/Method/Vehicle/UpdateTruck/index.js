@@ -39,12 +39,18 @@ const useStyles = makeStyles(() => ({
     margin: '20px',
   },
 }));
-const DeleteShipment = () => {
+const UpdateTruck = () => {
   const styles = useStyles();
   const navigate = useNavigate();
   const [page, setPage] = useState(0);
   const [formData, setFormData] = useState({
-    id: ""
+    id: "",
+    mass: "",
+    h: "",
+    w: "",
+    l: "",
+    truckType: ""
+
   });
   const handleInputChange = (fieldName, value) => {
     setFormData((prevData) => ({
@@ -55,7 +61,7 @@ const DeleteShipment = () => {
 
 const handleSuccessClick = async () => {
   try {
-    const response = await axios.post("http://localhost:8080/api/v1/shipments/delete", formData, {
+    const response = await axios.post("http://localhost:8080/api/v1/vehicles/trucks/update", formData, {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -65,7 +71,7 @@ const handleSuccessClick = async () => {
     const { code, message } = response.data;
 
     // Display alert with the code
-    if(code === '3002'){
+    if(code === '3001'){
       alert('success!')
       navigate('/shipment');
     } else {
@@ -74,6 +80,7 @@ const handleSuccessClick = async () => {
 
   } catch (error) {
     console.error("Error while sending data:", error);
+    // Handle errors here
   }
 };
 
@@ -85,7 +92,7 @@ const handleSuccessClick = async () => {
         {/* Component Assign Page */}
         <div className={styles.components}>
           <div className={styles.header} style={{padding: "2rem"}}>
-            <h3 className={styles.title}>Delete Shipment</h3>
+            <h3 className={styles.title}>Update Truck</h3>
           </div>
           <Grid
             container
@@ -108,6 +115,62 @@ const handleSuccessClick = async () => {
                 />
               </CardContent>
               <CardContent style={{ userSelect: "none" }}>
+                <Form.Control
+                  size="lg"
+                  type="text"
+                  placeholder="mass"
+                  value={formData.mass}
+                  onChange={(e) =>
+                    handleInputChange("mass", e.target.value)
+                  }
+                />
+              </CardContent>
+              <CardContent style={{ userSelect: "none" }}>
+                <Form.Control
+                  size="lg"
+                  type="text"
+                  placeholder="h"
+                  value={formData.h}
+                  onChange={(e) =>
+                    handleInputChange("h", e.target.value)
+                  }
+                />
+              </CardContent>
+              <CardContent style={{ userSelect: "none" }}>
+                <Form.Control
+                  size="lg"
+                  type="text"
+                  placeholder="w"
+                  value={formData.w}
+                  onChange={(e) =>
+                    handleInputChange("w", e.target.value)
+                  }
+                />
+              </CardContent>
+              <CardContent style={{ userSelect: "none" }}>
+                <Form.Control
+                  size="lg"
+                  type="text"
+                  placeholder="l"
+                  value={formData.l}
+                  onChange={(e) =>
+                    handleInputChange("l", e.target.value)
+                  }
+                />
+              </CardContent>
+              <CardContent style={{ userSelect: "none" }}>
+                <Form.Control
+                  size="lg"
+                  type="text"
+                  placeholder="truckType"
+                  value={formData.truckType}
+                  onChange={(e) =>
+                    handleInputChange("truckType", e.target.value)
+                  }
+                />
+              </CardContent>
+
+              <CardContent style={{ userSelect: "none" }}>
                 <Button variant="success" onClick={handleSuccessClick}>
                   OK
                 </Button>
@@ -119,4 +182,4 @@ const handleSuccessClick = async () => {
     </div>
   );
 };
-export default DeleteShipment;
+export default UpdateTruck;

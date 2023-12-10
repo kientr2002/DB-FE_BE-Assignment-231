@@ -26,6 +26,21 @@ import UpdateDateDeliveryMan from './pages/Method/Shipment/UpdateDateDeliveryMan
 import DeleteShipmentBatch from './pages/Method/Shipment/DeleteShipmentBatch';
 import DeleteShipment from './pages/Method/Shipment/DeleteShipment';
 import DeleteOutrangeShipment from './pages/Method/Shipment/DeleteOutrangeShipment';
+import Person from './pages/Method/Person';
+import InsertPerson from './pages/Method/Person/InsertPerson';
+import InsertDriver from './pages/Method/Person/InsertDriver';
+import InsertShipper from './pages/Method/Person/InsertShipper';
+import UpdatePerson from './pages/Method/Person/UpdatePersonInfo';
+import UpdateDriver from './pages/Method/Person/UpdateDriverInfo';
+import UpdateShipper from './pages/Method/Person/UpdateShipperInfo';
+import DeletePerson from './pages/Method/Person/DeletePerson';
+import Vehicle from './pages/Method/Vehicle';
+import InsertBike from './pages/Method/Vehicle/InsertBike';
+import UpdateBike from './pages/Method/Vehicle/UpdateBike';
+import DeleteBike from './pages/Method/Vehicle/DeleteBike';
+import InsertTruck from './pages/Method/Vehicle/InsertTruck';
+import UpdateTruck from './pages/Method/Vehicle/UpdateTruck';
+import DeleteTruck from './pages/Method/Vehicle/DeleteTruck';
 function App() {
   return (
     <div>
@@ -129,7 +144,67 @@ function App() {
               <Layout>
                 <DeleteShipmentBatch/>
               </Layout>}/>
-                        
+            <Route path="/person" element={
+              <Layout>
+                <Person/>
+              </Layout>}/> 
+            <Route path="/insertperson" element={
+              <Layout>
+                <InsertPerson/>
+              </Layout>}/> 
+            <Route path="/insertdriver" element={
+              <Layout>
+                <InsertDriver/>
+              </Layout>}/> 
+            <Route path="/insertshipper" element={
+              <Layout>
+                <InsertShipper/>
+              </Layout>}/> 
+            <Route path="/updateperson" element={
+              <Layout>
+                <UpdatePerson/>
+              </Layout>}/> 
+            <Route path="/updatedriver" element={
+              <Layout>
+                <UpdateDriver/>
+              </Layout>}/> 
+            <Route path="/updateshipper" element={
+              <Layout>
+                <UpdateShipper/>
+              </Layout>}/> 
+            <Route path="/deleteperson" element={
+              <Layout>
+                <DeletePerson/>
+              </Layout>}/>    
+            <Route path="/vehiclemethod" element={
+              <Layout>
+                <Vehicle/>
+              </Layout>}/>    
+            <Route path="/insertbike" element={
+              <Layout>
+                <InsertBike/>
+              </Layout>}/>    
+            <Route path="/updatebike" element={
+              <Layout>
+                <UpdateBike/>
+              </Layout>}/>    
+            <Route path="/deletebike" element={
+              <Layout>
+                <DeleteBike/>
+              </Layout>}/>    
+            <Route path="/inserttruck" element={
+              <Layout>
+                <InsertTruck/>
+              </Layout>}/>    
+            <Route path="/updatetruck" element={
+              <Layout>
+                <UpdateTruck/>
+              </Layout>}/>    
+            <Route path="/deletetruck" element={
+              <Layout>
+                <DeleteTruck/>
+              </Layout>}/>    
+                                
           </Routes>
           
     </div>

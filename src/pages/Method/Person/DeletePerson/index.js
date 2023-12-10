@@ -39,12 +39,12 @@ const useStyles = makeStyles(() => ({
     margin: '20px',
   },
 }));
-const DeleteShipment = () => {
+const DeletePerson = () => {
   const styles = useStyles();
   const navigate = useNavigate();
   const [page, setPage] = useState(0);
   const [formData, setFormData] = useState({
-    id: ""
+    ssn: ""
   });
   const handleInputChange = (fieldName, value) => {
     setFormData((prevData) => ({
@@ -55,7 +55,7 @@ const DeleteShipment = () => {
 
 const handleSuccessClick = async () => {
   try {
-    const response = await axios.post("http://localhost:8080/api/v1/shipments/delete", formData, {
+    const response = await axios.post("http://localhost:8080/api/v1/people/delete-person", formData, {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -85,7 +85,7 @@ const handleSuccessClick = async () => {
         {/* Component Assign Page */}
         <div className={styles.components}>
           <div className={styles.header} style={{padding: "2rem"}}>
-            <h3 className={styles.title}>Delete Shipment</h3>
+            <h3 className={styles.title}>Delete Person</h3>
           </div>
           <Grid
             container
@@ -100,10 +100,10 @@ const handleSuccessClick = async () => {
                 <Form.Control
                   size="lg"
                   type="text"
-                  placeholder="id"
-                  value={formData.id}
+                  placeholder="ssn"
+                  value={formData.ssn}
                   onChange={(e) =>
-                    handleInputChange("id", e.target.value)
+                    handleInputChange("ssn", e.target.value)
                   }
                 />
               </CardContent>
@@ -119,4 +119,4 @@ const handleSuccessClick = async () => {
     </div>
   );
 };
-export default DeleteShipment;
+export default DeletePerson;

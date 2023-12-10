@@ -39,7 +39,7 @@ const useStyles = makeStyles(() => ({
     margin: '20px',
   },
 }));
-const DeleteShipment = () => {
+const DeleteBike = () => {
   const styles = useStyles();
   const navigate = useNavigate();
   const [page, setPage] = useState(0);
@@ -55,7 +55,7 @@ const DeleteShipment = () => {
 
 const handleSuccessClick = async () => {
   try {
-    const response = await axios.post("http://localhost:8080/api/v1/shipments/delete", formData, {
+    const response = await axios.post("http://localhost:8080/api/v1/vehicles/bikes/delete", formData, {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -74,6 +74,7 @@ const handleSuccessClick = async () => {
 
   } catch (error) {
     console.error("Error while sending data:", error);
+    // Handle errors here
   }
 };
 
@@ -85,7 +86,7 @@ const handleSuccessClick = async () => {
         {/* Component Assign Page */}
         <div className={styles.components}>
           <div className={styles.header} style={{padding: "2rem"}}>
-            <h3 className={styles.title}>Delete Shipment</h3>
+            <h3 className={styles.title}>Delete Bike</h3>
           </div>
           <Grid
             container
@@ -119,4 +120,4 @@ const handleSuccessClick = async () => {
     </div>
   );
 };
-export default DeleteShipment;
+export default DeleteBike;

@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap/dist/js/bootstrap.min.js";
 import { NavLink } from "react-router-dom";
 import './style.css';
-import { CiHome, CiCalendar, CiDeliveryTruck, CiBoxes, CiViewList, CiUser, CiServer, CiBoxList } from "react-icons/ci";
+import { CiHome, CiCalendar, CiDeliveryTruck, CiBoxes, CiViewList, CiUser, CiServer, CiBoxList, CiEdit } from "react-icons/ci";
 import { width } from '@mui/system';
 
 function Navbar() {
@@ -53,6 +53,11 @@ function Navbar() {
                         <CiBoxes className='icon'></CiBoxes>
                     </NavLink>
                 </div>
+                <div className='icon-container'>
+                    <NavLink to="/method" className="NavLink" style={style}>
+                        <CiEdit className='icon'></CiEdit>
+                    </NavLink>
+                </div>                
             </div>
     );
 }

@@ -42,6 +42,12 @@ const Method = () => {
   const ShipmentPage = useCallback(() => {
     navigate('/shipment');
   }, []);
+  const PersonPage = useCallback(() => {
+    navigate('/person');
+  }, []);
+  const VehiclePage = useCallback(() => {
+    navigate('/vehiclemethod');
+  }, []);  
   return (
     <div className={styles.container}>
       {/* Assign task */}
@@ -59,9 +65,9 @@ const Method = () => {
             flexDirection="row"
             columnSpacing={10}
           ><Grid item>
-            <CardContent style={{ userSelect: "none" }}><button class="confirm" href="" onClick={ShipmentPage}>Person</button></CardContent>
+            <CardContent style={{ userSelect: "none" }}><button class="confirm" href="" onClick={PersonPage}>Person</button></CardContent>
             <CardContent style={{ userSelect: "none" }}><button class="confirm" href="" onClick={ShipmentPage}>Shipment</button></CardContent>
-            <CardContent style={{ userSelect: "none" }}><button class="confirm" href="" onClick={ShipmentPage}>Vehicle</button></CardContent>
+            <CardContent style={{ userSelect: "none" }}><button class="confirm" href="" onClick={VehiclePage}>Vehicle</button></CardContent>
           </Grid></Grid>
         </div>
       </>
