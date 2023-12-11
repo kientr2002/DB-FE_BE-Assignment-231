@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './calendar.css';
-import data from './data.json'
+// import data from './data.json'
+import api from '../../api/axiosConfig'
 
 import GroupTasks from '../../components/Calendar/GroupTasks';
 import ShowTaskModal from '../../components/Calendar/ShowTaskModal';
@@ -13,6 +14,7 @@ const Calendar = () => {
   let grid = { id: 0, day: 0 };
   const weekspMonth = [0, 1, 2, 3, 4];
   const weekDays = ["cn", "t2", "t3", "t4", "t5", "t6", "t7"];
+  
   const [tasks, setTasks] = useState([]);
   const [monthDifference, setMonthDifference] = useState(0);
   const [currentTask, setCurrentTask] = useState({});
@@ -25,7 +27,20 @@ const Calendar = () => {
   const [showAddModal, setShowAddModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
 
+  const getData = async() => {
+    try{
+      const response = await api.get("/api/v1/shipments/get-all");
+      const result = await response.data;
+      console.log(result);
+      setTasks(result);
+    }catch(error){
+      alert(error)
+    }
+  };
+
   useEffect(() => {
+    getData()
+
     today = new Date();
     grid = { id: 0, day: 0 };
     today.setMonth(today.getMonth() + monthDifference);
@@ -50,8 +65,8 @@ const Calendar = () => {
     b.setHours(0);
 
     return tasks.filter((task) => {
-      let c = new Date(task?.startDate);
-      let d = new Date(task?.startDate);
+      let c = new Date(task.expected_pickUpDate);
+      let d = new Date(task.expected_pickUpDate);
 
       c.setHours(23);
       d.setHours(0);
@@ -60,28 +75,35 @@ const Calendar = () => {
     });
   };
 
-  const updateTask = ({ id, name, type, vehicle, area, emp, startDate, start, end, note }) => {
-    setTasks([
-      ...tasks.filter((task) => task.id !== id),
-      {
-        id: id,
-        name: name,
-        type: type,
-        vehicle: vehicle,
-        area: area,
-        emp: emp,
-        startDate: startDate,
-        start: start,
-        end: end,
-        note: note,
-      }
-    ]);
+  const updateTask = async ({ id, pickupMan_SSN, deliveryMan_SSN, status}) => {
+    try{
+      await api.post("/api/v1/shipments/update-pickup-man",{
+        "id": id,
+        "pickupMan_SSN": pickupMan_SSN
+      });
+      await api.post("/api/v1/shipments/update-delivery-man",{
+        "id": id,
+        "deliveryMan_SSN": deliveryMan_SSN
+      });
+      await api.post("/api/v1/shipments/update-status",{
+        "id": id,
+        "status": status
+      });
+    }catch(error){
+      alert(error)
+    }
   };
 
 
-  const deleteTask = () => {
+  const deleteTask = async () => {
     if (window.confirm("You are about to delete an task :(")) {
-      setTasks([...tasks.filter((task) => task.id !== currentTask.id)]);
+      try{
+          await api.post("/api/v1/shipments/delete",{
+          "id": currentTask.id
+        });
+      }catch(error){
+        alert(error)
+      }
       setShowModal(false);
     }
   };

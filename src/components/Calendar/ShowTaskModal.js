@@ -2,67 +2,56 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../pages/Calendar/calendar.css';
 
-const JTask = ({task}) => {
+const CTask = ({task}) => {
   return (
     <div className="row justify-content-center">
-      <div className="col-md-6 taskd">
-        MCP: {task.area}
-      </div>
-      <div className="col-md-6 taskd">
-        Troller: {task.vehicle}
-      </div>
-      <div className="col-md-6 taskd">
-        Janitor: {task.emp}
-      </div>
-      <div className="col-md-6 taskd"> 
-      </div>
-      <div className="col-md-12 taskd">
-        Ngày: {task.startDate}
-      </div>
-      <div className="col-md-6 taskd">
-        Bắt đầu: {task.start}
-      </div>
-      <div className="col-md-6 taskd">
-        Kết thúc: {task.end}
-      </div>
-      <div className="col-md-12 taskd">
-        Ghi chú: {task.note}
-      </div>
+    <div className="col-md-6 taskd">
+      ID: {task.id}
     </div>
-  )
-}
-
-const CTask = () => {
-  return (
-    <div className="row justify-content-center">
-      <div className="col-md-6 taskd">
-        Route ID:
-      </div>
-      <div className="col-md-6 taskd">
-        Phương tiện:
-      </div>
-      <div className="col-md-12 taskd">
-        Collector:
-      </div>
-      <div className="col-md-6 taskd">
-        Bắt đầu:
-      </div>
-      <div className="col-md-6 taskd">
-        Kết thúc:
-      </div>
-      <div className="col-md-12 taskd">
-        Ngày:
-      </div>
-      <div className="col-md-12 taskd">
-        Ghi chú:
-      </div>
+    <div className="col-md-6 taskd">
+      Giá thành: {task.fare}
     </div>
+    <div className="col-md-12 taskd">
+      Ngày shipper nhận hàng: {task.pickUpDate}
+    </div>
+    <div className="col-md-6 taskd">
+      Ngày Shipper nhận hàng dự kiến: {task.expected_pickUpDate}
+    </div>
+    <div className="col-md-6 taskd">
+      Ngày shipper giao hàng: {task.deliveryDate}
+    </div>
+    <div className="col-md-6 taskd">
+      Ngày hoàn thành giao dự kiến: {task.expected_deliveryDate}
+    </div>
+    <div className="col-md-6 taskd">
+      Từ kho nguồn: {task.pickUpDate}
+    </div>
+    <div className="col-md-6 taskd">
+      Trạng thái: {task.status}
+    </div>
+    <div className="col-md-6 taskd">
+      SSN shipper nhận: {task.pickupMan_SSN}
+    </div>
+    <div className="col-md-6 taskd">
+      SSN shipper gửi: {task.deliveryMan_SSN}
+    </div>
+    <div className="col-md-6 taskd">
+      SSN người gửi: {task.sender_SSN}
+    </div>
+    <div className="col-md-6 taskd">
+      SSN người nhận: {task.receiver_SSN}
+    </div>
+    <div className="col-md-6 taskd">
+      Loại hàng: {task.product_type}
+    </div>
+  </div>
   );
 }
 
 const ShowTaskModal = ({ visible, task, update, toggle, erase }) => {
   let b = new Date(task?.startDate);
 
+// const pog = true;
   return (
     <>
       {visible && <div className="modal-backdrop fade show"></div>}
@@ -78,7 +67,7 @@ const ShowTaskModal = ({ visible, task, update, toggle, erase }) => {
               ></button>
             </div>
             <div className="modal-body">
-              {task?.for === 'collector' ? <CTask task={task}/> : <JTask task={task} />}
+              <CTask task={task}/>
             </div>
             <div className="modal-footer">
               <button className="btn rounded-pill edit" onClick={update}>

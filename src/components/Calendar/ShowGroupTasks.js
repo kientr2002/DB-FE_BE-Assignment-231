@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../pages/Calendar/calendar.css';
 
 const ShowGroupTasks = ({ show, tasks, toggle, visible }) => {
-    const date = new Date(tasks[0]?.startDate);
+    const date = new Date(tasks[0]?.expected_pickUpDate);
     const tday = new Date();
 
     return (
@@ -38,13 +38,11 @@ const ShowGroupTasks = ({ show, tasks, toggle, visible }) => {
                                     }}
                                     className={
                                         `btn btn-md d-block w-100 p-2 mb-3 text-truncate mx-auto rounded-pill 
-                                        ${tday <= new Date(task.startDate) ? "green" : "gray"}`
+                                        ${tday <= new Date(task.expected_pickUpDate) ? "green" : "gray"}`
                                     }
                                 >
                                     <div className="row justify-content-center">
-                                        <div className='col-md'>8:00 - 12:00</div>
-                                        <div className='col-md'>{task.name}</div>
-                                        <div className='col-md'>Nguyen Van A</div>
+                                        <div className='col-md'>{task.id}</div>
                                     </div>
                                 </button>
                             ))}
