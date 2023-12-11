@@ -24,7 +24,7 @@ const LoginAfterClick = () => {
       const result = await response.data;
 
       if (result.code === "0000") {
-        navigate('/home');
+        navigate('/member');
       } else {
         alert(result.message);
       }

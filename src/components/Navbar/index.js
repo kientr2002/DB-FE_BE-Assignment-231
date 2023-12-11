@@ -14,16 +14,6 @@ function Navbar() {
     return (
             <div id='Navbar' className='row align-items-center'>
                 <div className='icon-container'>
-                    <NavLink to="/home" className="NavLink" style={style}>
-                        <CiHome className='icon'></CiHome>
-                    </NavLink>
-                </div>
-                <div className='icon-container'>
-                    <NavLink to="/assign-task" className="NavLink" style={style}>
-                        <CiViewList className='icon'></CiViewList>
-                    </NavLink>
-                </div>
-                <div className='icon-container'>
                     <NavLink to="/member" className="NavLink" style={style}>
                         <CiUser className='icon'></CiUser>
                     </NavLink>
