@@ -19,24 +19,6 @@ const CustomColor = styled('div')({
     
 });
 
-const MCPSList = [
-    { key: 1, name: "Dĩ An 3", percentage: "88", color_bar: '#D94949',
-        ID: 333444555, year: 2021, status: "Đang sử dụng", capacity: "1500L", inUse: "1350L", color: "Vàng", address: "Đường N3, phường Dĩ An, thị xã Dĩ An, tỉnh Bình Dương"
-    },
-    { key: 2, name: "Thủ Đức 2", percentage: "40", color_bar: '#97E075',
-    ID: 777888999, year: 2020, status: "Đang sử dụng", capacity: "1000L", inUse: "400L", color: "Xanh lá", address: "1 Đ. Võ Văn Ngân, Linh Chiểu, Thành Phố Thủ Đức, Thành phố Hồ Chí Minh"
-    },
-    { key: 3, name: "Lý Thường Kiệt 14", percentage: "80", color_bar: '#D94949',
-        ID: 123456789, year: 2018, status: "Đang sử dụng", capacity: "1000L", inUse: "800L", color: "Xanh lá", address: "268 Lý Thường Kiệt, Phường 14, Quận 10, TP. HCM"
-    },
-    { key: 4, name: "Phường Lá Quận Hoa", percentage: "50", color_bar: '#FFE76B',
-    ID: 444555999, year: 2020, status: "Đang sử dụng", capacity: "1000L", inUse: "500L", color: "Xanh lá", address: "59C Nguyễn Đình Chiểu, Quận 3, TP. HCM"
-    },
-    { key: 5, name: "Dĩ An 5", percentage: "20", color_bar: '#97E075',
-    ID: 222333444, year: 2019, status: "Đang sử dụng", capacity: "1500L", inUse: "300L", color: "Xanh lá", address: "167 Lý Thường Kiệt, KP Thắng Lợi 2, P. Dĩ An, TX. Dĩ An, Bình Dương"
-    }
-];
-
 const active = {backgroundColor: '#ECECEC', borderRadius: '1rem', height: '62px', width: '330px'}
 const inactive = {}
 

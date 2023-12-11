@@ -10,7 +10,6 @@ const GroupTasks = ({
   maxSize = 4
 }) => {
   const [showModal, setShowModal] = React.useState(false);
-  const tday = new Date();
   
   return (
     <>
@@ -28,10 +27,10 @@ const GroupTasks = ({
               key={task.id}
               onClick={() => show(task.id)}
               className={`btn btn-sm d-block w-100 text-truncate mx-auto taskBtn ${
-                tday <= new Date(task.startDate) ? "green" : "gray"
+                "green"
               }`} 
             >
-              {task.name}
+              {task.id}
             </button>
           ))
         ) : (
